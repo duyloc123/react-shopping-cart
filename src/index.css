@@ -288,3 +288,10 @@ body {
 .cardItem_right {
   width: 100%
 }
+
+
+.button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
