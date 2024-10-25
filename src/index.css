@@ -288,3 +288,8 @@ body {
 .cardItem_right {
   width: 100%
 }
+.Button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
