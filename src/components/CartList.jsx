@@ -6,7 +6,11 @@ import { userAppContext } from "../context/AppContext";
 
 function CartList() {
   const { cart, deleteCart, plusProduct, minsProduct } = userAppContext();
-  const totalPrice = cart.reduce((acc,curr) => acc += curr.price * curr.quanlity, 0);
+  
+  const totalPrice = React.useMemo(() => {
+    return cart.reduce((acc,curr) => acc += curr.price * curr.quanlity, 0)
+  }, [cart]);
+
   return (
     <>
        <div className="cardTop">
