@@ -1,10 +1,18 @@
 import React from 'react'
+import { useDispatch  } from 'react-redux';
 import Button from './Button'
-import { useAppContext } from '../contexts/AppContext'
 import ImageSimple from './ImageSimple';
+import { useSelector } from 'react-redux';
+import { addToCart } from '../redux/cart.action';
 
 function ProductItem() {
-  const { products, addToCart, carts } = useAppContext();
+  const dispatch = useDispatch();
+  const products = useSelector(state => state.product.products)
+  const carts = useSelector(state => state.cart.carts);
+
+  function _addToCart(item) {
+    dispatch(addToCart(item))
+  }
 
   return (
     <>
@@ -32,6 +40,7 @@ function ProductItem() {
               {!disabled && (
                 <div 
                   className="shopItem_button"
+                  onClick={() => _addToCart(item)}
                   style={{
                     backgroundColor: disabled ? 'transparent' : ''
                   }}
@@ -39,7 +48,6 @@ function ProductItem() {
                   <Button
                     text="Added"
                     bgColor='transparent'
-                    onClick={() => addToCart(item.id)}
                   />
                 </div>
               )}

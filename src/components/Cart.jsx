@@ -1,9 +1,9 @@
 import React from 'react'
 import ImageSimple from './ImageSimple'
-import { useAppContext } from '../contexts/AppContext'
+import { useSelector } from 'react-redux';
 
 function Cart() {
-  const { carts } = useAppContext();
+  const carts = useSelector(state => state.cart.carts);
   const total = carts.reduce((acc, curr) => acc += curr.price * (curr.quanlity || 1), 0);
 
   return (

@@ -1,4 +1,4 @@
-export const dataCart = [
+export const dataProducts = [
   {
     id: 1,
     image:
